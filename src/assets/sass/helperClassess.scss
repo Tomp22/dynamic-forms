@@ -1,0 +1,38 @@
+.fullWidth {
+  width: 100% !important;
+  display: block !important;
+}
+
+.displayNo {
+  display: none !important;
+}
+
+.hide,
+.hidden {
+  visibility: hidden;
+}
+
+.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.displayFlex {
+  display: flex;
+}
+
+.blockEl {
+  display: block !important;
+}
+
+.noClick {
+  pointer-events: none;
+}
+
+.noList {
+  list-style: none;
+}

@@ -1,0 +1,15 @@
+button{
+  padding: 10px;
+  background: lightslategrey;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  margin: 5px;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+  &.active{
+    background:lightskyblue;
+    color: black;
+    box-shadow: none;
+  }
+}

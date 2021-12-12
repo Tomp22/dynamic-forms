@@ -1,0 +1,22 @@
+<!-- take single element from obj -->
+<p *ngIf="monstersData3$ | async as localData">
+{{localData.index}}
+</p>
+
+<!-- take multiple elements from obj array -->
+<div *ngFor="let item of ( monstersData3$ | async)?.proficiencies">
+
+  {{item.proficiency.index}}
+
+  </div>
+
+<!-- <div *ngFor="let item of ( monstersData2$ | async)?.results">
+
+{{item.index}}
+
+</div>
+<div *ngFor="let item of monstersData$ | async">
+
+  {{item.index}}
+
+  </div> -->

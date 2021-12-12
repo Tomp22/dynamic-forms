@@ -1,0 +1,87 @@
+<header>
+  <h2>Displayed Elements: {{ count }}</h2>
+</header>
+
+<input
+  class="form-control"
+  type="text"
+  [(ngModel)]="searchText"
+  placeholder="Search"
+/>
+
+<button class="sortAll" (click)="sortAllColumns()">
+  Sort All Columns {{ sortAllButtonName }}
+  <i class="fa {{ arrow }} " aria-hidden="true"> </i>
+</button>
+
+<div
+  *ngIf="(dataForDisplay | filterSearch: searchText).length > 0; else noResults"
+>
+  <div
+    *ngFor="
+      let item of dataForDisplay | filterSearch: searchText;
+      let i = index
+    "
+  >
+    <ul class="column noList" *ngIf="item.index">
+      <h3 *ngIf="i === 0">
+        Item Index
+        <button
+          (mousedown)="sortIndex(); isActiveButton[i] = !isActiveButton[i]"
+        >
+          <i
+            *ngIf="isActiveButton[i]"
+            class="fa fa-angle-down"
+            aria-hidden="true"
+          ></i>
+          <i
+            *ngIf="!isActiveButton[i]"
+            class="fa fa-angle-up"
+            aria-hidden="true"
+          ></i>
+        </button>
+      </h3>
+      <li>{{ item.index }}</li>
+    </ul>
+    <ul class="column noList" *ngIf="item.name">
+      <h3 *ngIf="i === 0">
+        Item Name
+
+        <button (click)="sortName(); isActiveButton[i] = !isActiveButton[i]">
+          <i
+            *ngIf="isActiveButton[i]"
+            class="fa fa-angle-down"
+            aria-hidden="true"
+          ></i>
+          <i
+            *ngIf="!isActiveButton[i]"
+            class="fa fa-angle-up"
+            aria-hidden="true"
+          ></i>
+        </button>
+      </h3>
+      <li>{{ item.name }}</li>
+    </ul>
+    <ul class="column noList" *ngIf="item.url">
+      <h3 *ngIf="i === 0">
+        Item Url
+        <button (click)="sortURL(); isActiveButton[i] = !isActiveButton[i]">
+          <i
+            *ngIf="isActiveButton[i]"
+            class="fa fa-angle-down"
+            aria-hidden="true"
+          ></i>
+          <i
+            *ngIf="!isActiveButton[i]"
+            class="fa fa-angle-up"
+            aria-hidden="true"
+          ></i>
+        </button>
+      </h3>
+      <li>{{ item.url }}</li>
+    </ul>
+  </div>
+</div>
+<ng-template #noResults>
+  <p>No results found for "{{ searchText }}".</p>
+</ng-template>
