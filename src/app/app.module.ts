@@ -16,12 +16,42 @@ import { ApiNGRXEntityComponent } from './pages/api-ngrxentity/api-ngrxentity.co
 import { ApiNGRXDataComponent } from './pages/api-ngrxdata/api-ngrxdata.component';
 import { ChartJSComponent } from './views/chart-js/chart-js.component';
 import { ChartsComponent } from './pages/charts/charts.component';
-import { ThemeService } from "ng2-charts";
+import { ThemeService } from 'ng2-charts';
 import { NgChartsModule } from 'ng2-charts';
+import { DynamicFormComponent } from './pages/dynamic-form/dynamic-form.component';
+import { UiInputFormComponent } from './views/ui-inputForm/ui-inputForm.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from 'src/app/app.material.module';
+import { ReactiveFormsModule} from '@angular/forms';
+
+
 @NgModule({
-  declarations: [AppComponent, FilterPipe, TableComponent, MenuComponent, HomeComponent, ProgramikiComponent, ApiServicesComponent, ApiNGRXEntityComponent, ApiNGRXDataComponent, ChartJSComponent, ChartsComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgChartsModule],
-  providers: [myDataService,ThemeService],
+  declarations: [
+    AppComponent,
+    FilterPipe,
+    TableComponent,
+    MenuComponent,
+    HomeComponent,
+    ProgramikiComponent,
+    ApiServicesComponent,
+    ApiNGRXEntityComponent,
+    ApiNGRXDataComponent,
+    ChartJSComponent,
+    ChartsComponent,
+    DynamicFormComponent,
+    UiInputFormComponent,
+  ],
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    NgChartsModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+  ],
+  providers: [myDataService, ThemeService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

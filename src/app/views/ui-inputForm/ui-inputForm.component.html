@@ -1,0 +1,40 @@
+<!-- <mat-spinner class="CENTER-ELEMENT _spinner" [diameter]="50" *ngIf="!showForm"></mat-spinner> -->
+<form [formGroup]="myFormGroup" [ngClass]="{'_matErrorBG': !switchBorder, 'displayNo': !showForm}">
+
+  <div *ngFor="let item of formTemplate; let i = index">
+
+      <div [ngSwitch]="item.type" [ngClass]="{'border': switchBorder}">
+          <div *ngSwitchCase="'textBox'">
+              <mat-form-field class="blockEl" appearance="fill">
+                  <mat-label>
+                    <!-- {{ item.translationGroupPrefix+'.'+ item.translationGroupLabelValue | translate }} -->
+                  </mat-label>
+
+                  <input #filterName matInput [type]="inputType" formControlName="{{ item.controlName }}" class="portal_username">
+
+                  <!-- <button *ngIf="myFormGroup.controls[item.controlName].value" fxShow fxHide.sm="true" mat-button matSuffix mat-icon-button aria-label="Clear" (mousedown)="myFormGroup.controls[item.controlName].reset()" tabindex="-1">
+                      <mat-icon>{{item.iconType}}</mat-icon>
+                  </button> -->
+
+                  <mat-error *ngIf="myFormGroup.controls[item.controlName].hasError('required')">
+                      <!-- {{ item.translationGroupPrefix+'.'+ item.translationGroupErrorValue1 | translate }} -->
+                  </mat-error>
+                  <mat-error *ngIf="myFormGroup.controls[item.controlName].hasError('email') && !myFormGroup.controls[item.controlName].hasError('required')">
+                      <!-- {{ item.translationGroupPrefix+'.'+ item.translationGroupErrorValue2 | translate }} -->
+                  </mat-error>
+
+                  <div *ngIf="item.controlName == 'verificationCodeFormControl' || item.controlName == 'newPasswordFormControl'">
+                      <mat-error *ngIf="myFormGroup.controls[item.controlName].hasError('minlength') && !myFormGroup.controls[item.controlName].hasError('required')">
+                          <!-- {{ item.translationGroupPrefix+'.'+ item.translationGroupErrorValue1 | translate }} -->
+                      </mat-error>
+                      <mat-error *ngIf="myFormGroup.controls[item.controlName].hasError('maxlength') && !myFormGroup.controls[item.controlName].hasError('required') ">
+                          <!-- {{ item.translationGroupPrefix+'.'+ item.translationGroupErrorValue2 | translate }} -->
+                      </mat-error>
+                  </div>
+
+              </mat-form-field>
+</div>
+
+      </div>
+  </div>
+</form>

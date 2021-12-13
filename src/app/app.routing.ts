@@ -8,6 +8,7 @@ import { ApiServicesComponent } from './pages/api-services/api-services.componen
 import { ApiNGRXEntityComponent } from './pages/api-ngrxentity/api-ngrxentity.component';
 import { ApiNGRXDataComponent } from './pages/api-ngrxdata/api-ngrxdata.component';
 import { ChartsComponent } from './pages/charts/charts.component';
+import { DynamicFormComponent } from './pages/dynamic-form/dynamic-form.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,9 @@ const routes: Routes = [
 },
 {
   path: "charts", component: ChartsComponent
+},
+{
+  path: "dynamic-forms", component: DynamicFormComponent
 },
 
 
