@@ -1,9 +1,8 @@
 const form_template = [
   {
     type: 'textBox',
-    translationGroupPrefix: 'login2',
-    translationGroupLabelValue: 'userEmail2',
-    translationGroupErrorValue1: 'noName2',
+    translationGroupLabelValue: 'User Email 2',
+    translationGroupErrorValue1: 'Error email 2',
     iconType: 'close',
     controlName: 'userFormControl',
   },

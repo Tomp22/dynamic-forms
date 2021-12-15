@@ -61,18 +61,28 @@ export class UiInputFormComponent{
    */
   updateFields(): void {
     if (this.myFieldsContent && this.myFieldsContent.length > 0) {
-      let group = {} as any;
+
+      // declare form group
+      const group = {} as any;
 
       this.fieldsContent.forEach((inputTemplate) => {
-        if (inputTemplate.controlName === 'userFormControl') {
-          group[inputTemplate.controlName] = new FormControl('', [
-            Validators.required,
-          ]);
-        } else if (inputTemplate.controlName === 'loginFormControl') {
-          group[inputTemplate.controlName] = new FormControl('', [
-            Validators.required,
-          ]);
-        }
+        group[inputTemplate.controlName] = new FormControl('', [
+              Validators.required,
+            ]);
+        // if (inputTemplate.controlName === 'userFormControl') {
+        //   group[inputTemplate.controlName] = new FormControl('', [
+        //     Validators.required,
+        //   ]);
+        // } else if (inputTemplate.controlName === 'loginFormControl') {
+        //   group[inputTemplate.controlName] = new FormControl('', [
+        //     Validators.required,
+        //   ]);
+        // }
+        // else if (inputTemplate.controlName === 'loginFormControlMatch') {
+        //   group[inputTemplate.controlName] = new FormControl('', [
+        //     Validators.required,
+        //   ]);
+        // }
       });
       this.myFormGroup = new FormGroup(group);
     }

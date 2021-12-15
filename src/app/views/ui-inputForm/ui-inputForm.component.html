@@ -12,7 +12,7 @@
             <button *ngIf="myFormGroup.controls[item.controlName].value" fxShow fxHide.sm="true" mat-button matSuffix
               mat-icon-button aria-label="Clear" (mousedown)="myFormGroup.controls[item.controlName].reset()"
               tabindex="-1">
-
+              <mat-icon>{{item.iconType}}</mat-icon>
             </button>
 
             <mat-error *ngIf="myFormGroup.controls[item.controlName].hasError('required')">

@@ -1,27 +1,24 @@
 const form_template = [
   {
     type: 'textBox',
-    translationGroupPrefix: 'login',
-    translationGroupLabelValue: 'userEmail',
-    translationGroupErrorValue1: 'noName',
+    translationGroupLabelValue: 'User Email',
+    translationGroupErrorValue1: 'Error email 1',
     iconType: 'close',
     controlName: 'userFormControl',
   },
   {
     type: 'inputType',
-    translationGroupPrefix: 'login',
-    translationGroupLabelValue: 'userPassword',
-    translationGroupErrorValue1: 'noPassword',
+    translationGroupLabelValue: 'User Password',
+    translationGroupErrorValue1: 'Error password',
     iconType: 'close',
     controlName: 'loginFormControl',
   },
   {
     type: 'inputType',
-    translationGroupPrefix: 'login',
-    translationGroupLabelValue: 'userPasswordMatch',
-    translationGroupErrorValue1: 'noMatchPassword',
+    translationGroupLabelValue: 'User Password Match',
+    translationGroupErrorValue1: 'Error password match',
     iconType: 'close',
-    controlName: 'loginFormControl',
+    controlName: 'loginFormControlMatch',
   },
 ];
 export default form_template;
