@@ -5,36 +5,9 @@ import {
   OnInit,
   EventEmitter,
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  ElementRef,
-  ViewChild,
 } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  Validators,
-  ValidatorFn,
-  FormGroupDirective,
-  NgForm,
-} from '@angular/forms';
-import { observable } from 'rxjs';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IInputForm } from './model-inputForm';
-import { ErrorStateMatcher } from '@angular/material/core';
-
-/** Error when invalid control is dirty, touched, or submitted. */
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(
-    control: FormControl | null,
-    form: FormGroupDirective | NgForm | null
-  ): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(
-      control &&
-      control.invalid &&
-      (control.dirty || control.touched || isSubmitted)
-    );
-  }
-}
 
 /**
  *  UI Element UiInputFormComponent
@@ -46,7 +19,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   host: { class: 'ui_input_form_class' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UiInputFormComponent implements OnInit {
+export class UiInputFormComponent{
   /**
    * Value set by any Parent Component
    */
@@ -54,6 +27,13 @@ export class UiInputFormComponent implements OnInit {
   set fieldsContent(content: IInputForm[]) {
     this.myFieldsContent = content;
     this.updateFields();
+  }
+  /**
+   *   Get My Insight
+   * */
+  get fieldsContent(): IInputForm[] {
+    // transform value for display
+    return this.myFieldsContent;
   }
 
   /**
@@ -68,32 +48,14 @@ export class UiInputFormComponent implements OnInit {
   public myFieldsContent: IInputForm[] = [];
 
   /**
-   * Angular Form Template
-   */
-  formTemplate: IInputForm[];
-
-  /**
    * Angular Form Group
    */
   myFormGroup: FormGroup;
-
-  /**
-   *   Get My Insight
-   * */
-  get fieldsContent(): IInputForm[] {
-    // transform value for display
-    return this.myFieldsContent;
-  }
 
   /**show hide icon (VISIBLITY EYE) in the loop */
   showIcon: any[] = [];
 
   constructor() {}
-
-  ngOnInit() {
-    this.formTemplate = this.myFieldsContent;
-  }
-
   /**
    * load content to fields
    */

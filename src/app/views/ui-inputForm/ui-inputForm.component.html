@@ -1,7 +1,7 @@
 <section>
 
   <form [formGroup]="myFormGroup">
-    <div *ngFor="let item of formTemplate; let i = index">
+    <div *ngFor="let item of myFieldsContent; let i = index">
       <div [ngSwitch]="item.type">
         <div *ngSwitchCase="'textBox'">
           <mat-form-field class="blockEl" appearance="fill">
