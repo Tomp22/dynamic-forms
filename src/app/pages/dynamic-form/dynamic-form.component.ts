@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import loginForm_formTemplate from './loginForm_formTemplate';
+import loginForm_formTemplate1 from './loginForm_formTemplate1';
+import loginForm_formTemplate2 from './loginForm_formTemplate2';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -12,7 +13,8 @@ export class DynamicFormComponent implements OnInit {
   /**
    * pass to child form fileds from form_template
    * */
-  public formFieldsSettings: any[] = loginForm_formTemplate;
+  public formFieldsSettings1: any[] = loginForm_formTemplate1;
+  public formFieldsSettings2: any[] = loginForm_formTemplate2;
   /**
    *  value from child declaration
    */
@@ -34,11 +36,7 @@ export class DynamicFormComponent implements OnInit {
    */
   inputFormReturnValues($event: any) {
     this.receivedValues = $event;
-    this.username = JSON.parse(
-      JSON.stringify(this.receivedValues.userFormControl)
-    );
-    this.password = JSON.parse(
-      JSON.stringify(this.receivedValues.loginFormControl)
-    );
+    console.log(this.receivedValues)
+
   }
 }

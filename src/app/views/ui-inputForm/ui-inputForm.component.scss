@@ -1,36 +1,21 @@
-// // @import "src/assets/sass/modules/_mixins.scss";
-// $_color: black;
-// $_backColor: white;
-// mat-form-field {
-//     margin-bottom: 3px;
-//     // material angular elements are encapsulated use ng-deep
-//     ::ng-deep {
-//         .mat-form-field-flex {
-//             background-color: $_backColor;
-//             color: $_color;
-//             @include border-radius(0);
-//         }
-//         .mat-form-field-subscript-wrapper {
-//             margin-top: 2px;
-//         }
-//     }
-//     .mat-icon {
-//         color: $_color;
-//     }
-// }
+section {
+  display: block;
+  width: 100%;
+  form {
+    width: 50%;
+    mat-label {
+      color: black;
+    }
+  }
+  ::ng-deep {
+    .mat-form-field-flex {
+      background: gray;
+      margin: 10px;
+      color: white;
+    }
+  }
+}
 
-// mat-hint {
-//     color: #0d7015 !important;
-// }
-
-// // if border on
-// .border {
-//     ::ng-deep {
-//         .mat-form-field-flex {
-//             border: 1px solid gray;
-//         }
-//     }
-// }
-// ._spinner {
-//     margin-bottom: 30px !important;
-// }
+.blockEl {
+  display: block;
+}
