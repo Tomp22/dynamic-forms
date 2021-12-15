@@ -1,5 +1,14 @@
-
-<app-ui-inputForm [fieldsContent]="formFieldsSettings"
-
-                  (fieldsValues)="inputFormReturnValues($event)" #inputFormChild>
+<app-ui-inputForm [fieldsContent]="formFieldsSettings1" (fieldsValues)="inputFormReturnValues($event)" #inputFormChild1>
 </app-ui-inputForm>
+
+
+<button mat-raised-button color="primary" (click)="inputFormChild1.onSubmit()">Submit For Form 1</button>
+
+
+<hr>
+
+<app-ui-inputForm [fieldsContent]="formFieldsSettings2" (fieldsValues)="inputFormReturnValues($event)" #inputFormChild2>
+</app-ui-inputForm>
+
+
+<button mat-raised-button color="primary" (click)="inputFormChild2.onSubmit()">Submit For Form 2</button>
